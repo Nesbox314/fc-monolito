@@ -45,4 +45,14 @@ export default class Invoice extends BaseEntity implements AggregateRoot {
         return this._items
     }
 
+    getTotalPrice() : number {
+        let total = 0;
+
+        this._items.forEach(function (item) {
+            total = total + item.price;
+        });
+
+        return total;
+    }
+
 }
